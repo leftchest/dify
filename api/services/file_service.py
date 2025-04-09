@@ -69,6 +69,7 @@ class FileService:
 
         file_key = "upload_files/" + (current_tenant_id or "") + "/" + file_uuid + "." + extension
 
+        source_url = '/app/api/storage/' + file_key if not source_url else source_url #新增已返回本地url路径
         # save file to storage
         storage.save(file_key, content)
 
